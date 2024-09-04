@@ -36,7 +36,7 @@ if not os.environ.get("DIST_SUFFIX"):
         # If not a tag, dist name is: mntm-(branch)-(commmit)
         branch_name = git("rev-parse", "--abbrev-ref", "HEAD").removeprefix("mntm-")
         commit_sha = git("rev-parse", "HEAD")[:8]
-        DIST_SUFFIX = f"mntm-{branch_name}-{commit_sha}"
+        DIST_SUFFIX = f"mntm-mello-{branch_name}-{commit_sha}"
     # Dist name is only for naming of output files
     DIST_SUFFIX = DIST_SUFFIX.replace("/", "-")
     # Instead, FW version uses tag name (mntm-xxx), or "mntm-dev" if not a tag (see scripts/version.py)
