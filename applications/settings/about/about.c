@@ -159,6 +159,19 @@ static DialogMessageButton about_screen_hw_version(DialogsApp* dialogs, DialogMe
     return result;
 }
 
+static DialogMessageButton about_screen_propulsion(DialogsApp* dialogs, DialogMessage* message) {
+    DialogMessageButton result;
+
+    const char* screen_text = "For info about DevMello's\n"
+                              "Propulsion, please visit:\n"
+                              "propulsion.devmello.xyz";
+
+    dialog_message_set_text(message, screen_text, 0, 0, AlignLeft, AlignTop);
+    result = dialog_message_show(dialogs, message);
+
+    return result;
+}
+
 static DialogMessageButton about_screen_fw_version(DialogsApp* dialogs, DialogMessage* message) {
     DialogMessageButton result;
     FuriString* buffer;
@@ -185,12 +198,12 @@ static DialogMessageButton about_screen_fw_version(DialogsApp* dialogs, DialogMe
             api_minor,
             c2_ver ? c2_ver->StackTypeString : "<none>",
             version_get_target(ver));
-        if(!strcmp(version_get_version(ver), "mntm-dev") &&
+        if(!strcmp(version_get_version(ver), "propulsion") &&
            strcmp(version_get_gitbranch(ver), "dev")) {
             // Not a tag but not dev branch, show custom branch
             furi_string_cat(buffer, version_get_gitbranch(ver));
         } else {
-            furi_string_cat(buffer, "momentum-fw.dev");
+            furi_string_cat(buffer, "propulsion.devmello.xyz");
         }
     }
 
