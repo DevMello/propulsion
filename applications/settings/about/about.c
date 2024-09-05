@@ -219,6 +219,7 @@ const AboutDialogScreen about_screens[] = {
     about_screen_product,
     about_screen_hw_version,
     about_screen_fw_version,
+    about_screen_propulsion,
     about_screen_compliance,
     about_screen_address,
     about_screen_icon1,
